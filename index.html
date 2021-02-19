@@ -10096,15 +10096,22 @@
             currentarticle['sections'] = {}
 
             totalsections = parsedhtml.getElementById('sectionmaster').childElementCount
-
+            
             for (let j = 0; j < totalsections; j++) {
                 tempobj = {}
                 asection = parsedhtml.getElementById(`section${j + 1}`)
-                sectiontitle = asection.children[0].children[0].innerText
-                sectionpara1 = asection.children[1].innerText
-                tempobj['title'] = sectiontitle
-                tempobj['paragraph'] = sectionpara1
-                currentarticle['sections'][j] = tempobj
+                if(asection){
+                    sectiontitle = asection.children[0].children[0].innerText
+                    sectionpara1 = asection.children[1].innerText
+                    tempobj['title'] = sectiontitle
+                    tempobj['paragraph'] = sectionpara1
+                    currentarticle['sections'][j] = tempobj
+                }
+/*                 else{
+                    parsedhtml.getElementById('sectionmaster')
+                    console.log(j+1)
+                    console.error(`current article with issue : ${currentarticle['title']}`)
+                } */
             }
 
             parsedarticles[articlekeys[i]] = currentarticle
