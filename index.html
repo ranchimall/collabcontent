@@ -10925,7 +10925,7 @@
 
       document.getElementById(
         "current_date"
-      ).innerText = `${weekday} ${month} ${date}, ${year}`;
+      ).textContent = `${weekday} ${month} ${date}, ${year}`;
     }
 
     updateDate();
@@ -10935,42 +10935,44 @@
     }
 
     function parseArticles(articles) {
-      let totalarticles = Object.keys(articles).length;
-      articlekeys = Object.keys(articles);
       let domparser = new DOMParser();
-
-      for (let i = 0; i < totalarticles; i++) {
-        let currentarticle = {};
-
-        let articlehtml = articles[articlekeys[i]];
-        let parsedhtml = domparser.parseFromString(articlehtml, "text/html");
-
-        currentarticle["title"] = parsedhtml.getElementById("title").innerText;
-        currentarticle["subtitle"] =
-          parsedhtml.getElementById("subtitle").innerText;
-        currentarticle["sections"] = {};
-
-        totalsections =
-          parsedhtml.getElementById("sectionmaster").childElementCount;
-
-        for (let j = 0; j < totalsections; j++) {
-          tempobj = {};
-          asection = parsedhtml.getElementById(`section${j + 1}`);
-          if (asection) {
-            sectiontitle = asection.children[0].children[0].innerText;
-            sectionpara1 = asection.children[1].innerText;
-            tempobj["title"] = sectiontitle;
-            tempobj["paragraph"] = sectionpara1;
-            currentarticle["sections"][j] = tempobj;
+      
+      console.table(articles)
+      for(const articleKey in articles){
+        if(articles.hasOwnProperty(articleKey)){
+          let currentarticle = {};
+          let parsedhtml = domparser.parseFromString(articles[articleKey], "text/html");
+          if(parsedhtml.getElementById("title")){
+            currentarticle["title"] = parsedhtml.getElementById("title").textContent;
+            currentarticle["subtitle"] =
+              parsedhtml.getElementById("subtitle").textContent;
+            currentarticle["sections"] = {};
+      
+            totalsections =
+              parsedhtml.getElementById("sectionmaster").childElementCount;
+      
+            for (let j = 0; j < totalsections; j++) {
+              tempobj = {};
+              asection = parsedhtml.getElementById(`section${j + 1}`);
+              if (asection) {
+                sectiontitle = asection.children[0].children[0].textContent;
+                sectionpara1 = asection.children[1].textContent;
+                tempobj["title"] = sectiontitle;
+                tempobj["paragraph"] = sectionpara1;
+                currentarticle["sections"][j] = tempobj;
+              }
+              /*                 else{
+                        parsedhtml.getElementById('sectionmaster')
+                        console.log(j+1)
+                        console.error(`current articleKey with issue : ${currentarticle['title']}`)
+                    } */
+            }
+            parsedarticles[articleKey] = currentarticle;
+          }else{
+            // Article with incorrect format
+            console.error('Article with incorrect format ' + articleKey)
           }
-          /*                 else{
-                    parsedhtml.getElementById('sectionmaster')
-                    console.log(j+1)
-                    console.error(`current article with issue : ${currentarticle['title']}`)
-                } */
         }
-
-        parsedarticles[articlekeys[i]] = currentarticle;
       }
     }
 
@@ -11045,13 +11047,13 @@
               element.classList.value = "fa fa-thumbs-up";
 
               if (
-                document.getElementById(`${columnName}_count`).innerText == ""
+                document.getElementById(`${columnName}_count`).textContent == ""
               ) {
-                document.getElementById(`${columnName}_count`).innerText = "1";
+                document.getElementById(`${columnName}_count`).textContent = "1";
               } else {
-                document.getElementById(`${columnName}_count`).innerText =
+                document.getElementById(`${columnName}_count`).textContent =
                   parseInt(
-                    document.getElementById(`${columnName}_count`).innerText
+                    document.getElementById(`${columnName}_count`).textContent
                   ) + 1;
               }
             });
@@ -11087,7 +11089,7 @@
         if (articleKeys[i] in articles_votesmapping) {
           document.getElementById(
             `${map_articlekey_column[articleKeys[i]]}_count`
-          ).innerText = articles_votesmapping[articleKeys[i]];
+          ).textContent = articles_votesmapping[articleKeys[i]];
         }
       }
     }
