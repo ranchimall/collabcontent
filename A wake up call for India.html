@@ -392,12 +392,12 @@
         let columnName =`column${col}_count`;
         console.log(element)
         console.log(element.classList)
-        if (myFloID!=undefined) {
+        if (myFloID1!=undefined) {
           if (element.classList.value  == "fa fa-thumbs-o-up")
            {
             let articlekey =articlekeey
             let mainObj = {
-              floID: myFloID,
+              floID: myFloID1,
               articlekey: articlekey,
             };
             console.log("mainObj")
@@ -423,16 +423,11 @@
     </script>
 
     <script id="onLoadStartUp">
-          var myFloID,col,articlekeey,myPrivKey;
+          var myFloID1,col,articlekeey,myPrivKey;
           function onLoadStartUp(){
-            floDapps.launchStartUp().then(result => {
-                console.log(result)
-                console.log(`Welcome FLO_ID: ${myFloID}`)
-                //App functions....
-            }).catch(error => console.error(error))
-        
+            floDapps.launchStartUp()
           var  b=JSON.parse(sessionStorage.getItem("z"))
-            myFloID=(sessionStorage.getItem("m"))
+            myFloID1=(sessionStorage.getItem("m"))
             col=(sessionStorage.getItem("col"))
             console.log(col)
             articlekeey=(sessionStorage.getItem("articlename"))
