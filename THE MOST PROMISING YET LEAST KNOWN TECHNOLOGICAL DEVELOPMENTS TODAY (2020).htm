@@ -411,12 +411,7 @@ These measurement instruments which utilize quantum states are present for quite
 A prevalent hurdle in quantum sensing is the dispute between isolating the sensitive quantum states from external disturbances consequently while being able to manipulate the quantum states and expose them to the physical quantity that can be measured. These sensors are theoretically proven to be far more helpful than normal sensors, but they are not commercially recognized for their high prices.
  
 Some commercially accepted products of quantum sensors are atomic clocks and compact gravity meters. To enhance the accuracy of the atomic clocks, the researchers are now turning to atomic transitions at optical or even ultraviolet frequencies, and experimenting with single quantum systems. On the other hand, compact gravity meters are employed for detailed underground mappings like mineral prospecting, geophysical surveys, and seismology. 
-The future impact of quantum sensing can be revolutionary in many scientific and commercial sectors. They are projected to enable autonomous driving, detection of minor particles of explosives and poisons, detailed underground mapping, medical advancements, and many more.</p></div></div>   <div class="columns">
-                                            <span style="float:right">
-                                                <span id="article-vote">Vote</span>
-                                                <i class="fa fa-thumbs-o-up" aria-hidden="true" style="padding-left:0.5rem; cursor:pointer" id="article-thumbs" onclick="clickProcess(this)"></i>
-                                            </span>
-                                        </div>
+The future impact of quantum sensing can be revolutionary in many scientific and commercial sectors. They are projected to enable autonomous driving, detection of minor particles of explosives and poisons, detailed underground mapping, medical advancements, and many more.</p></div></div>
                                     </div>
                                 </div>
                             </div>
@@ -452,12 +447,12 @@ The future impact of quantum sensing can be revolutionary in many scientific and
                               let columnName =`column${col}_count`;
                               console.log(element)
                               console.log(element.classList)
-                              if (myFloID!=undefined) {
+                              if (myFloID1!=undefined) {
                                 if (element.classList.value  == "fa fa-thumbs-o-up")
                                  {
                                   let articlekey =articlekeey
                                   let mainObj = {
-                                    floID: myFloID,
+                                    floID: myFloID1,
                                     articlekey: articlekey,
                                   };
                                   console.log("mainObj")
@@ -10170,9 +10165,9 @@ The future impact of quantum sensing can be revolutionary in many scientific and
                               getCredentials: function () {
                                 const defaultInput = function (type) {
                                   return new Promise((resolve, reject) => {
-                                    let inputVal = prompt(`Enter ${type}: `);
-                                    if (inputVal === null) reject(null);
-                                    else resolve(inputVal);
+                                   // let inputVal = prompt(`Enter ${type}: `);
+                                   // if (inputVal === null) reject(null);
+                                   // else resolve(inputVal);
                                   });
                                 };
                       

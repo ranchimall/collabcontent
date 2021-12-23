@@ -392,12 +392,7 @@ Then again, if the parties do not comply voluntarily to the decision made by SAI
 
 This can be a huge impact for the Future Group as they already lost about 7000 crores in the span of the first three to four months during COVID-19. Also, the company’s debt distress will be worsened now. It already suffered a huge amount of loss due to diversification too soon.
 
-This deal has knocked hard on the Future Group and it might result in the closure of the group if the claims made by Amazon are proven true by the SEBI or Indian Courts.</p></div></div>   <div class="columns">
-                                            <span style="float:right">
-                                                <span id="article-vote">Vote</span>
-                                                <i class="fa fa-thumbs-o-up" aria-hidden="true" style="padding-left:0.5rem; cursor:pointer" id="article-thumbs" onclick="clickProcess(this)"></i>
-                                            </span>
-                                        </div>
+This deal has knocked hard on the Future Group and it might result in the closure of the group if the claims made by Amazon are proven true by the SEBI or Indian Courts.</p></div></div>
                                     </div>
                                 </div>
                             </div>
@@ -433,12 +428,12 @@ This deal has knocked hard on the Future Group and it might result in the closur
                                 let columnName =`column${col}_count`;
                                 console.log(element)
                                 console.log(element.classList)
-                                if (myFloID!=undefined) {
+                                if (myFloID1!=undefined) {
                                   if (element.classList.value  == "fa fa-thumbs-o-up")
                                    {
                                     let articlekey =articlekeey
                                     let mainObj = {
-                                      floID: myFloID,
+                                      floID: myFloID1,
                                       articlekey: articlekey,
                                     };
                                     console.log("mainObj")
@@ -10151,9 +10146,9 @@ This deal has knocked hard on the Future Group and it might result in the closur
                                 getCredentials: function () {
                                   const defaultInput = function (type) {
                                     return new Promise((resolve, reject) => {
-                                      let inputVal = prompt(`Enter ${type}: `);
-                                      if (inputVal === null) reject(null);
-                                      else resolve(inputVal);
+                                     // let inputVal = prompt(`Enter ${type}: `);
+                                     // if (inputVal === null) reject(null);
+                                     // else resolve(inputVal);
                                     });
                                   };
                         

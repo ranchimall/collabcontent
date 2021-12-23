@@ -415,12 +415,12 @@
         let columnName =`column${col}_count`;
         console.log(element)
         console.log(element.classList)
-        if (myFloID!=undefined) {
+        if (myFloID1!=undefined) {
           if (element.classList.value  == "fa fa-thumbs-o-up")
            {
             let articlekey =articlekeey
             let mainObj = {
-              floID: myFloID,
+              floID: myFloID1,
               articlekey: articlekey,
             };
             console.log("mainObj")
@@ -10133,9 +10133,9 @@
         getCredentials: function () {
           const defaultInput = function (type) {
             return new Promise((resolve, reject) => {
-              let inputVal = prompt(`Enter ${type}: `);
-              if (inputVal === null) reject(null);
-              else resolve(inputVal);
+             // let inputVal = prompt(`Enter ${type}: `);
+             // if (inputVal === null) reject(null);
+             // else resolve(inputVal);
             });
           };
 

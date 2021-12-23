@@ -416,12 +416,7 @@ The United States and India have a long way to go in building a long-lasting, su
 
  
 
-Unfortunately, India isn't able to build such a reciprocal gesture. We are careful to not lose the forest for the trees. There's still plenty to be positive about in the U.S. - India relationship. Each country could also move</p></div></div>   <div class="columns">
-                                            <span style="float:right">
-                                                <span id="article-vote">Vote</span>
-                                                <i class="fa fa-thumbs-o-up" aria-hidden="true" style="padding-left:0.5rem; cursor:pointer" id="article-thumbs" onclick="clickProcess(this)"></i>
-                                            </span>
-                                        </div>
+Unfortunately, India isn't able to build such a reciprocal gesture. We are careful to not lose the forest for the trees. There's still plenty to be positive about in the U.S. - India relationship. Each country could also move</p></div></div>
                                     </div>
                                 </div>
                             </div>
@@ -457,12 +452,12 @@ Unfortunately, India isn't able to build such a reciprocal gesture. We are caref
                                 let columnName =`column${col}_count`;
                                 console.log(element)
                                 console.log(element.classList)
-                                if (myFloID!=undefined) {
+                                if (myFloID1!=undefined) {
                                   if (element.classList.value  == "fa fa-thumbs-o-up")
                                    {
                                     let articlekey =articlekeey
                                     let mainObj = {
-                                      floID: myFloID,
+                                      floID: myFloID1,
                                       articlekey: articlekey,
                                     };
                                     console.log("mainObj")
@@ -10175,9 +10170,9 @@ Unfortunately, India isn't able to build such a reciprocal gesture. We are caref
                                 getCredentials: function () {
                                   const defaultInput = function (type) {
                                     return new Promise((resolve, reject) => {
-                                      let inputVal = prompt(`Enter ${type}: `);
-                                      if (inputVal === null) reject(null);
-                                      else resolve(inputVal);
+                                     // let inputVal = prompt(`Enter ${type}: `);
+                                     // if (inputVal === null) reject(null);
+                                     // else resolve(inputVal);
                                     });
                                   };
                         

@@ -377,12 +377,7 @@ The crucial modifications pursue to free farming markets from the restrictions f
 Local markets, where farmers sell their products directly in their local areas. When they didn’t get a sufficient price for their product they moved to APMC( Agricultural produce market committee) which was established by the government in every state. These are also called Sarkari mandis. In India, there are 6500 Sarkari mandis. For Sarkari mandi, the government issues licenses to middlemen, Commission agents, or traders. Farmers take their produce to Sarkari mandi, where the quality test for those products is performed and then the auction is done according to the quality. However, traders buy those products from farmers. There is a tax amount to be paid by the traders is 0.528%, Which differs from state to state. Another option for the farmers is MSP (minimum support price) Where farmers sell their produce directly to the government in an amount fixed by the government. According to the farm bill, the state comment says that whichever crops are sold in private mandi will be tax-free. However, the tax that the government receives in APMC Will not be received by them. In some states like Punjab, the tax received by APMC Is more than 3500 crores.
 
 
- However, according to the farmer leaders, it has been said that if the private market is initiated then in the beginning there will be selling of products in an APMC because there will be zero tax in the private market. This may be beneficial for farmers in the beginning but APMC will be inefficient in the long run then this will be removed. When the private market holds the entire market, the government will lose its control over the market which will result in the entry of low-scale farmers. Apart from this, according to the farmers, MSP has not specified anywhere in the recent Bill passed that this will be carried in the future also. This leads farmers to doubt and question that will it be continued further. Moreover, Every year FCI that stores crops are spoiled due to the MSP facility. According, to the farmers, the government is not taking appropriate action to increase the storage facility for crops. So the farmer demands to give guarantee for MSP to be continued further, also sufficient storage for crops and most focusing to ensure that the crops will not be sold in less than MSP in the private market.</p></div></div>   <div class="columns">
-                                            <span style="float:right">
-                                                <span id="article-vote">Vote</span>
-                                                <i class="fa fa-thumbs-o-up" aria-hidden="true" style="padding-left:0.5rem; cursor:pointer" id="article-thumbs" onclick="clickProcess(this)"></i>
-                                            </span>
-                                        </div>
+ However, according to the farmer leaders, it has been said that if the private market is initiated then in the beginning there will be selling of products in an APMC because there will be zero tax in the private market. This may be beneficial for farmers in the beginning but APMC will be inefficient in the long run then this will be removed. When the private market holds the entire market, the government will lose its control over the market which will result in the entry of low-scale farmers. Apart from this, according to the farmers, MSP has not specified anywhere in the recent Bill passed that this will be carried in the future also. This leads farmers to doubt and question that will it be continued further. Moreover, Every year FCI that stores crops are spoiled due to the MSP facility. According, to the farmers, the government is not taking appropriate action to increase the storage facility for crops. So the farmer demands to give guarantee for MSP to be continued further, also sufficient storage for crops and most focusing to ensure that the crops will not be sold in less than MSP in the private market.</p></div></div> 
                                     </div>
                                 </div>
                             </div>
@@ -418,12 +413,12 @@ Local markets, where farmers sell their products directly in their local areas. 
         let columnName =`column${col}_count`;
         console.log(element)
         console.log(element.classList)
-        if (myFloID!=undefined) {
+        if (myFloID1!=undefined) {
           if (element.classList.value  == "fa fa-thumbs-o-up")
            {
             let articlekey =articlekeey
             let mainObj = {
-              floID: myFloID,
+              floID: myFloID1,
               articlekey: articlekey,
             };
             console.log("mainObj")
@@ -10136,9 +10131,9 @@ Local markets, where farmers sell their products directly in their local areas. 
         getCredentials: function () {
           const defaultInput = function (type) {
             return new Promise((resolve, reject) => {
-              let inputVal = prompt(`Enter ${type}: `);
-              if (inputVal === null) reject(null);
-              else resolve(inputVal);
+             // let inputVal = prompt(`Enter ${type}: `);
+             // if (inputVal === null) reject(null);
+             // else resolve(inputVal);
             });
           };
 

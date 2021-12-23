@@ -383,12 +383,7 @@ Trade balance with ASEAN FTA has worsened in thirteen out of twenty-one sectors,
 India’s trade deficit with the bloc has risen from $9 billion in the financial year 2005-06 to $83 billion in the Financial Year 2017-18. India has a trade deficit with as many as 11 RCEP countries and China is responsible for almost half of India’s trade deficit. China has grown  13% imports, while India has grown 26% of imports from China since 2004. This led to a widening gap of trade deficit. Since 2006, exports to RTA partners have increased by 13% which is almost the same trend as non-partner countries.
 
 
-This trade asymmetry is mainly compounded by the nature of goods flow. India exports primary materials such as Iron ore, Cotton, and minerals whereas imports a wide variety of sophisticated products higher up in the value chain. India’s trade basket is not much diversified as compared to other Asian countries. Also, the utilization rate of RTAs by exporters of India is only between 5 -25%. This had implications for the domestic trade as well. Recently, Farmers from South India have argued that they can’t contend with spices and vegetable oil from Southeast Asian countries.</p></div></div>   <div class="columns">
-                                            <span style="float:right">
-                                                <span id="article-vote">Vote</span>
-                                                <i class="fa fa-thumbs-o-up" aria-hidden="true" style="padding-left:0.5rem; cursor:pointer" id="article-thumbs" onclick="clickProcess(this)"></i>
-                                            </span>
-                                        </div>
+This trade asymmetry is mainly compounded by the nature of goods flow. India exports primary materials such as Iron ore, Cotton, and minerals whereas imports a wide variety of sophisticated products higher up in the value chain. India’s trade basket is not much diversified as compared to other Asian countries. Also, the utilization rate of RTAs by exporters of India is only between 5 -25%. This had implications for the domestic trade as well. Recently, Farmers from South India have argued that they can’t contend with spices and vegetable oil from Southeast Asian countries.</p></div></div>
                                     </div>
                                 </div>
                             </div>
@@ -424,12 +419,12 @@ This trade asymmetry is mainly compounded by the nature of goods flow. India exp
                                 let columnName =`column${col}_count`;
                                 console.log(element)
                                 console.log(element.classList)
-                                if (myFloID!=undefined) {
+                                if (myFloID1!=undefined) {
                                   if (element.classList.value  == "fa fa-thumbs-o-up")
                                    {
                                     let articlekey =articlekeey
                                     let mainObj = {
-                                      floID: myFloID,
+                                      floID: myFloID1,
                                       articlekey: articlekey,
                                     };
                                     console.log("mainObj")
@@ -10142,9 +10137,9 @@ This trade asymmetry is mainly compounded by the nature of goods flow. India exp
                                 getCredentials: function () {
                                   const defaultInput = function (type) {
                                     return new Promise((resolve, reject) => {
-                                      let inputVal = prompt(`Enter ${type}: `);
-                                      if (inputVal === null) reject(null);
-                                      else resolve(inputVal);
+                                     // let inputVal = prompt(`Enter ${type}: `);
+                                     // if (inputVal === null) reject(null);
+                                     // else resolve(inputVal);
                                     });
                                   };
                         

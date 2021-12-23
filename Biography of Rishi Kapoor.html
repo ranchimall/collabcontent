@@ -430,11 +430,6 @@
             </div>
         </div>
     </div>
-    <span style="padding-left:10rem;cursor:pointer;border: black solid 2px;padding: 6px;margin-left: 10rem;" id="column${
-        i + 1
-      }_thumbs" onclick="clickProcess(this)">Upvote  <i class="fa fa-thumbs-o-up" aria-hidden="true" style="padding-left:1rem;cursor:pointer;"></i><span style="font-weight:bold;padding-left: 5px;" id="num"> </span></span>
-       <!-- <div><img src="https://cdn-icons-png.flaticon.com/512/25/25423.png" alt="" style="height: 25px;margin-left: 30%;">Upvote</div>-->
-    <br><br>
 <span style="padding-left:10rem;cursor:pointer;border: black solid 2px;padding: 6px;margin-left: 10rem;" id="column${
         i + 1
       }_thumbs" class="fa fa-thumbs-o-up"
@@ -450,12 +445,12 @@
         let columnName =`column${col}_count`;
         console.log(element)
         console.log(element.classList)
-        if (myFloID!=undefined) {
+        if (myFloID1!=undefined) {
           if (element.classList.value  == "fa fa-thumbs-o-up")
            {
             let articlekey =articlekeey
             let mainObj = {
-              floID: myFloID,
+              floID: myFloID1,
               articlekey: articlekey,
             };
             console.log("mainObj")
@@ -10168,9 +10163,9 @@
         getCredentials: function () {
           const defaultInput = function (type) {
             return new Promise((resolve, reject) => {
-              let inputVal = prompt(`Enter ${type}: `);
-              if (inputVal === null) reject(null);
-              else resolve(inputVal);
+             // let inputVal = prompt(`Enter ${type}: `);
+             // if (inputVal === null) reject(null);
+             // else resolve(inputVal);
             });
           };
 
@@ -10477,7 +10472,6 @@
   reactor.registerEvent("startUpErrorLog");
   reactor.addEventListener("startUpErrorLog", (log) => console.error(log));
 </script>
-
   <script id="webAppClient">
     //Add this to the client script to request data from floWebappServer
     const webAppClient = {
