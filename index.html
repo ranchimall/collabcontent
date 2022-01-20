@@ -10515,64 +10515,35 @@
   }
 
   function renderColumns(parsedarticles) {
-    numberOfColumns = Object.keys(parsedarticles).length;
     let columns = document.getElementById("columnsmain");
     let parsedArticlesKeys = Object.keys(parsedarticles);
     let map_articlekey_column = {};
 
-    document.getElementById("loader_columnsmain").classList.add("hide"
-    );
+    document.getElementById("loader_columnsmain").classList.add("hide");
     columns.classList.remove("hide");
 
-    for (let i = 0; i < parsedArticlesKeys.length; i++) {
-      columnhtml = `<div class="column" id="column${i + 1
-        }" data-articlekey="${parsedArticlesKeys[i]}">
+    let i = 0;
+    for (const articleKey in parsedarticles) {
+      const { title, subtitle, sections } = parsedarticles[articleKey]
+      columnhtml = `<div class="column" id="column${i + 1}" data-articlekey="${articleKey}">
                           <div class="head rating1">
-                              <span class="headline hl3">${parsedarticles[parsedArticlesKeys[i]].title
-        }</span>
-                              <p><span class="headline hl4">${parsedarticles[parsedArticlesKeys[i]].subtitle
-        }</span></p>
+                              <span class="headline hl3">${title}</span>
+                              <p><span class="headline hl4">${subtitle}</span></p>
                           </div>
-                          <p>${parsedarticles[parsedArticlesKeys[i]].sections[0]
-          .paragraph
-        }</p>
-                          <span><a href='./${parsedArticlesKeys[i]
-        }.html' onclick='goto(${i})'>Read article 
+                          <p>${sections[0].paragraph}</p>
+                          <span><a href='./${articleKey}.html' onclick='goto(${i})'>Read article 
                               <i class="fa fa-angle-double-right" aria-hidden="true"></i> 
                           </a>
-                         <!--<div style="color:rgb(241, 106, 106);cursor:pointer;" id="column${i + 1}_hearts" class="heart" onclick="ratestar(this)">Rate this article <img  src="https://img.icons8.com/ios/25/000000/hand-drawn-star.png" / >
-                        <span class="dispnum">  <span>( <span id="column${i + 1}_count1" ></span>
-                         )</span></span></div>-->
-                          
                           <span style="float:right"><span id="column${i + 1}_count"></span>
                           <i class="fa fa-thumbs-o-up" aria-hidden="true" style="padding-left:0.5rem; cursor:pointer" id="column${i + 1}_thumbs" onclick="clickProcess(this)"></i></span>
                           <span>
                         </div>`;
       //columns.append(columnhtml)
       columns.innerHTML += columnhtml;
-      map_articlekey_column[parsedArticlesKeys[i]] = `column${i + 1}`;
+      map_articlekey_column[articleKey] = `column${i + 1}`;
+      i++;
     }
     return map_articlekey_column;
-  }
-  function goto(i) {
-    if (typeof (Storage) !== "undefined") {
-      var w = JSON.stringify((document.getElementById(`column${i + 1}_count`).textContent));
-      var artnm = document.getElementById(`column${i + 1}`).dataset.articlekey;
-      sessionStorage.setItem("z", w);
-      sessionStorage.setItem("m", myFloID);
-      sessionStorage.setItem("col", i);
-      sessionStorage.setItem("articlename", artnm)
-      sessionStorage.setItem("myprivkey", myPrivKey)
-      sessionStorage.setItem("mypubkey", myPubKey)
-      //var z=?param=document.getElementById(`column${i+1}_count`).textContent&param2=w;
-      window.location.href = `./${parsedArticleKeys[i]}.html`;
-    }
-  }
-  function switchtoArticle(element) {
-    homepage.classList.add("hide");
-    document.getElementById("displaypage").innerHTML =
-      articles[element.dataset.articlekey];
-    mainarticle_page.classList.remove("hide");
   }
 
   function clickProcess(element) {
@@ -10640,14 +10611,7 @@
     }
   }
 
-  function updaterates(article_ratesmapping, map_articlekey_column1) {
-    var articlekeys = Object.keys(map_articlekey_column1);
-    for (let i = 0; i < articlekeys.length; i++) {
-      document.getElementById(`${map_articlekey_column1[articlekeys[i]]}_count1`).textContent = 'No Ratings yet';
-    }
-  }
-
-  function saverating(num, ele2) {
+  function saveRating(num, ele2) {
     let columnName = ele2.id.split("_")[0];
     if (typeof myFloID !== "undefined") {
       if (ele2.classList.value == "heart") {
@@ -10706,27 +10670,27 @@
       document.getElementById('thank').innerHTML = "<h3 style='text-align:center' class='thank'><br>Thanks for your precious response!!</h3>"
       if (document.getElementById('5').checked) {
         document.getElementById('thank1').innerHTML = "<h3 style='text-align:center' class='thank'>Hurray!! You liked Us!</h3>"
-        saverating('5', ele1)
+        saveRating('5', ele1)
       } else {
         if (document.getElementById('4').checked) {
           document.getElementById('thank1').innerHTML = "<h3 style='text-align:center' class='thank'> Hurray!! You liked Us!</h3>"
-          saverating('4', ele1)
+          saveRating('4', ele1)
 
         }
         else {
           if (document.getElementById('3').checked) {
             document.getElementById('thank1').innerHTML = "<h3 style='text-align:center' class='thank'>We appreciate your feedback :)</h3>"
-            saverating('3', ele1)
+            saveRating('3', ele1)
           }
           else {
             if (document.getElementById('2').checked) {
               document.getElementById('thank1').innerHTML = "<h3 style='text-align:center' class='thank'> We will try to improve :)</h3>"
-              saverating('2', ele1)
+              saveRating('2', ele1)
             }
             else {
               if (document.getElementById('1').checked) {
                 document.getElementById('thank1').innerHTML = "<h3 style='text-align:center' class='thank'> We will try to improve :)</h3>"
-                saverating('1', ele1)
+                saveRating('1', ele1)
               }
               else {
                 document.getElementById('thank').innerHTML = "<h3 style='text-align:center' class='thank'><br>Please select a star to rate</h3>"
@@ -10747,11 +10711,10 @@
 
   Promise.all([fetch(repourl), webAppClient.requestGeneralData("test")]).then(
     async (values) => {
-      let repocontent = null;
       window.articles = {};
       window.parsedarticles = {};
 
-      repocontent = await values[0].json();
+      const repocontent = await values[0].json();
 
       const allPromises = []
       const allArticleNames = []
@@ -10936,10 +10899,8 @@
             //user ratings update onload
             articleinfo1 =
               floGlobals.generalData['{"application":"TestApp","type":"test2"}'];
-            console.log(articleinfo1);
             let article_ratesmapping = {};
 
-            updaterates(article_ratesmapping, map_articlekey_column1);
             let a = (Object.keys(map_articlekey_column1));
             let b = (Object.values(map_articlekey_column1));
             let column_name;
