@@ -748,129 +748,97 @@
         </div>
         <sm-button id='logout-button' style="margin-top:2rem">Logout</sm-button>
     </div>
-    <span style="padding-left:10rem;cursor:pointer;border: black solid 2px;padding: 6px;margin-left: 10rem;" id="column${
-        i + 1
-      }_thumbs" onclick="clickProcess(this)">Upvote  <i class="fa fa-thumbs-o-up" aria-hidden="true" style="padding-left:1rem;cursor:pointer;"></i><span style="font-weight:bold;padding-left: 5px;" id="num"> </span></span>
-       <!-- <div><img src="https://cdn-icons-png.flaticon.com/512/25/25423.png" alt="" style="height: 25px;margin-left: 30%;">Upvote</div>-->
-    <br><br>
-    <script src="https://use.fontawesome.com/41cc35d596.js"></script>
-    
-    <script>
-      function clickProcess(element) {
-          if(document.getElementById('num').textContent==" "){
-          document.getElementById('num').textContent="1";
-          }
-          else{
-            num1=Number(document.getElementById('num').textContent)
-            document.getElementById('num').textContent=num1+1;
-    
-          }
-        let columnName = element.id.split("_")[0];
-        alert(element)
-        if (typeof myFloID1 !== "undefined") {
-          if (element.classList.value  == "fa fa-thumbs-o-up") {
-            let articlekey =
-              document.getElementById(columnName).dataset.articlekey;
-            let mainObj = {
-              floID: myFloID1,
-              articlekey: articlekey,
-            };
-            
-            floCloudAPI
-              .sendGeneralData(JSON.stringify(mainObj), "test2")
-              .then((result, mainObj) => {
-                element.classList.value = "fa fa-thumbs-up";
-    
-                if (
-                  document.getElementById(`${columnName}_count`).textContent == ""
-                ) {
-                  document.getElementById(`${columnName}_count`).textContent = "1";
-                } else {
-                  document.getElementById(`${columnName}_count`).textContent =
-                    parseInt(
-                      document.getElementById(`${columnName}_count`).textContent
-                    ) + 1;
-                }
-              });
-          }
-        } else {
-          notifications.push("Please login to upvote");
-        }
-          }
-    
-          function numoflikes(){
-           var b=JSON.parse(sessionStorage.getItem("z"))
-           console.log(b)
-           document.getElementById('num').textContent=b;
-          sessionStorage.removeItem('z');
-          }
-    </script>
-    <span style="padding-left:10rem;cursor:pointer;border: black solid 2px;padding: 6px;margin-left: 10rem;" id="column${
-        i + 1
-      }_thumbs" class="fa fa-thumbs-o-up"
-     onclick="clickProcess(this)"> Upvote 
-      <!--<i class="fa fa-thumbs-o-up" aria-hidden="true" style="padding-left:1rem;cursor:pointer;"></i>-->
-      <span style="font-weight:bold;padding-left: 5px;" id="num"> </span></span>
-       <!-- <div><img src="https://cdn-icons-png.flaticon.com/512/25/25423.png" alt="" style="height: 25px;margin-left: 30%;">Upvote</div>-->
-    <br><br>
     <script src="https://use.fontawesome.com/41cc35d596.js"></script>
 
-    <script>
-      function clickProcess(element) {
-        let columnName =`column${col}_count`;
-        console.log(element)
-        console.log(element.classList)
-        if (myFloID!=undefined) {
-          if (element.classList.value  == "fa fa-thumbs-o-up")
-           {
-            let articlekey =articlekeey
-            let mainObj = {
-              floID: myFloID,
-              articlekey: articlekey,
-            };
-            console.log("mainObj")
-           floCloudAPI.sendGeneralData(JSON.stringify(mainObj), "test")
-              .then((result, mainObj) => {
-                element.classList.value = "fa fa-thumbs-up";
-    
-                if(document.getElementById('num').textContent==" "){
-          document.getElementById('num').textContent="1";
-          }
-          else{
-            num1=Number(document.getElementById('num').textContent)
-            document.getElementById('num').textContent=num1+1;
-    
-          }
-              });
-          }
-        } else {
-          document.getElementById('notify').push("Please login to upvote",{pinned:true});
-        }
-          }
+    <span style="padding-left:10rem;cursor:pointer;border: black solid 2px;padding: 6px;margin-left: 10rem;" id="column1_thumbs" class="fa fa-thumbs-o-up"
+    onclick="clickProcess(this)"> Upvote 
+     <span style="font-weight:bold;padding-left: 5px;" id="num"> </span></span>
+   <br><br>
+   <script>
+       function clickProcess(element) {
+         if (myFloID!=undefined) {
+           if (element.classList.value  == "fa fa-thumbs-o-up")
+            {
+             let mainObj = {
+               floID: myFloID,
+               articlekey: document.getElementById('title').textContent, 
+             };
+             console.log("mainObj")
+            floCloudAPI.sendGeneralData(JSON.stringify(mainObj), "test")
+               .then((result, mainObj) => {
+                 element.classList.value = "fa fa-thumbs-up";
+     
+                 if(document.getElementById('num').textContent==" "){
+           document.getElementById('num').textContent="1";
+           }
+           else{
+             num1=Number(document.getElementById('num').textContent)
+             document.getElementById('num').textContent=num1+1;
+     
+           }
+               });
+           }
+         } else {
+           document.getElementById('notify').push("Please login to upvote",{pinned:true});
+         }
+           }
+ 
+     </script>
 
-    </script>
+<script id="onLoadStartUp">
 
-    <script id="onLoadStartUp">
-          var myFloID,col,articlekeey,myPrivKey;
-          function onLoadStartUp(){
-            floDapps.launchStartUp().then(result => {
-                console.log(result)
-                console.log(`Welcome FLO_ID: ${myFloID}`)
-                //App functions....
-            }).catch(error => console.error(error))
-        
-          var  b=JSON.parse(sessionStorage.getItem("z"))
-            myFloID=(sessionStorage.getItem("m"))
-            col=(sessionStorage.getItem("col"))
-            console.log(col)
-            articlekeey=(sessionStorage.getItem("articlename"))
-            myPrivKey=sessionStorage.getItem("myprivkey");
-            myPubKey=sessionStorage.getItem("mypubkey");
-           document.getElementById('num').textContent=b;
-           //console.log(b+" "+col+" "+myFloID)
-          //sessionStorage.removeItem('z');
-          }
-    </script>
+function onLoadStartUp() {
+    //floDapps.addStartUpFunction('Sample', Promised Function)
+    //floDapps.setAppObjectStores({sampleObs1:{}, sampleObs2:{options{autoIncrement:true, keyPath:'SampleKey'}, Indexes:{sampleIndex:{}}}})
+    floDapps.launchStartUp().then(result => {
+        console.log(result)
+        console.log(`Welcome FLO_ID: ${myFloID}`)
+        //App functions....
+        let articledata = floCloudAPI.requestGeneralData('test')
+
+        Promise.all([articledata]).then((values) => {
+            console.log("The promises just got resolved")
+
+            let allArticles = document.querySelectorAll('[data-articlekey]')
+            let map_articlekey_column = {}
+
+            for (let i = 0; i < allArticles.length; i++) {
+                map_articlekey_column[`${allArticles[i].dataset.articlekey}`] = allArticles[i].id
+                console.log(map_articlekey_column[`${allArticles[i].dataset.articlekey}`])
+            }
+
+            // User list related operations 
+            let articleInfo = floGlobals.generalData['test|FKAEdnPfjXLHSYwrXQu377ugN4tXU7VGdf|TEST_MODE'],
+                                                articleInfo_keylist = Object.keys(articleInfo)
+
+                                            let articles_votesmapping = {}, 
+                                                voterCount = 0,
+                                                current_article = document.getElementById('title')
+                                            for (let i = 0; i < articleInfo_keylist.length; i++) {
+                                                let article_message = JSON.parse(articleInfo[articleInfo_keylist[i]].message)
+                                                let c1=(Object.values(article_message))
+
+                                                // List of FLO IDs who voted for the current article
+                                                console.log(c1[1])
+
+                                                if(document.getElementById('title').textContent==c1[1]){
+                                                    voterCount+=1;
+                                                    if(myFloID==c1[0]){
+                                                        document.getElementById(`column1_thumbs`).classList.value='fa fa-thumbs-up'  ;                                              
+                                                     }
+                                                }
+
+                                            }
+
+                                            if (voterCount > 0) {
+                                                document.getElementById('num').innerText = voterCount
+                                            }
+                                        });
+
+    }).catch(error => console.error(error))
+}
+</script>
+
 <script src="./components.min.js"></script>
 <script id="floGlobals">
   /* Constants for FLO blockchain operations !!Make sure to add this at begining!! */
