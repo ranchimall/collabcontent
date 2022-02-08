@@ -10203,75 +10203,6 @@
     reactor.registerEvent("startUpErrorLog");
     reactor.addEventListener("startUpErrorLog", (log) => console.error(log));
   </script>
-
-  <script id="webAppClient">
-    //Add this to the client script to request data from floWebappServer
-    const webAppClient = {
-      util: {
-        requestData(request = []) {
-          return new Promise((resolve, reject) => {
-            var websocket = new WebSocket("wss://" + floGlobals.webAppURL + "/ws");
-            websocket.onmessage = (evt) => {
-              if (evt.data == "$+") {
-                websocket.send(`?${JSON.stringify(request)}`);
-              } else if (evt.data == "$-") {
-                reject(`webApp not available`);
-                websocket.close();
-              } else {
-                resolve(JSON.parse(evt.data));
-                websocket.close();
-              }
-            };
-            websocket.onerror = (evt) => {
-              reject(`webApp server not found`);
-            };
-          });
-        },
-      },
-
-      requestGeneralData: function (type, vectorClock = "0") {
-        if (typeof vectorClock !== "string") vectorClock.toString();
-        return new Promise((resolve, reject) => {
-          this.util
-            .requestData([
-              floGlobals.application,
-              "generalData",
-              type,
-              vectorClock,
-            ])
-            .then((result) => {
-              if (result[0]) resolve(result[1]);
-              else reject(result[1]);
-            })
-            .catch((error) => reject(error));
-        });
-      },
-
-      requestObjectData: function (keyPath) {
-        return new Promise((resolve, reject) => {
-          this.util
-            .requestData([floGlobals.application, "appObjects"].concat(keyPath))
-            .then((result) => {
-              if (result[0]) resolve(result[1]);
-              else reject(result[1]);
-            })
-            .catch((error) => reject(error));
-        });
-      },
-
-      requestSubAdminList: function () {
-        return new Promise((resolve, reject) => {
-          this.util
-            .requestData([floGlobals.application, "subAdmins"])
-            .then((result) => {
-              if (result[0]) resolve(result[1]);
-              else reject(result[1]);
-            })
-            .catch((error) => reject(error));
-        });
-      },
-    };
-  </script>
   <script id="onLoadStartUp">
     let notifications = document.getElementById("sm-notifications"),
       genblockchainID = document.getElementById("gen-floid"),
@@ -10552,40 +10483,27 @@
 
     let repourl = "https://api.github.com/repos/ranchimall/articles/contents";
 
-    Promise.all([fetch(repourl), webAppClient.requestGeneralData("test")]).then(
-      async (values) => {
-        window.articles = {};
-        window.parsedarticles = {};
+    fetch(repourl).then(async (response) => {
+      window.articles = {};
+      window.parsedarticles = {};
 
-        const repocontent = await values[0].json();
+      const repocontent = await response.json();
 
-        const allPromises = []
-        const allArticleNames = []
-        repocontent.forEach((article) => {
-          const { download_url, name } = article;
-          if (name.slice(-5, name.length).includes('htm') && name.slice(0, -5) !== "index") {
-            allPromises.push(fetch(download_url));
-            allArticleNames.push(name)
-          }
-        })
-        const res = await Promise.all(allPromises)
-        const allArticleHTML = await Promise.all(res.map(articleHTML => articleHTML.text()))
-        allArticleHTML.forEach((html, index) => articles[allArticleNames[index]] = html)
-        parseArticles(articles);
-        let map_articlekey_column = renderColumns(parsedarticles);
-        let articleInfo = values[1];
-        let articles_votesmapping = {};
-
-        for (let i = 0; i < articleInfo.length; i++) {
-          let article_message = JSON.parse(articleInfo[i].message);
-
-          if (!(article_message.articlekey in articles_votesmapping)) {
-            articles_votesmapping[article_message.articlekey] = 1;
-          } else {
-            articles_votesmapping[article_message.articlekey]++;
-          }
+      const allPromises = []
+      const allArticleNames = []
+      repocontent.forEach((article) => {
+        const { download_url, name } = article;
+        if (name.slice(-5, name.length).includes('htm') && name.slice(0, -5) !== "index") {
+          allPromises.push(fetch(download_url));
+          allArticleNames.push(name)
         }
-      }
+      })
+      const res = await Promise.all(allPromises)
+      const allArticleHTML = await Promise.all(res.map(articleHTML => articleHTML.text()))
+      allArticleHTML.forEach((html, index) => articles[allArticleNames[index]] = html)
+      parseArticles(articles);
+      let map_articlekey_column = renderColumns(parsedarticles);
+    }
     );
 
 
