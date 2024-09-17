@@ -1,4 +1,4 @@
-<html lang="en">
+ <html lang="en">
                         <head>
                             <meta charset="UTF-8">
                             <title>RanchiMall Content Collaboration Output</title>
@@ -237,8 +237,6 @@
                                     }
                                 }
                             </style>
-
-                            <script src="https://use.fontawesome.com/41cc35d596.js"></script>
                             <script>
 
                                 const smButton = document.createElement('template')
@@ -1480,11 +1478,43 @@ customElements.define('sm-popup', class extends HTMLElement {
     }
 })
                                                      
+</script>
+                            <script src="https://use.fontawesome.com/41cc35d596.js"></script>
+                            
+
+                            <script id="floGlobals">
+                                /* Constants for FLO blockchain operations !!Make sure to add this at begining!! */
+                                const floGlobals = {
+
+                                    //Required for all
+                                    blockchain: "FLO",
+
+                                    //Required for blockchain API operators
+                                    apiURL: {
+                                        FLO: ['https://livenet.flocha.in/','https://flosight.duckdns.org/'],
+                                        FLO_TEST: ['https://testnet-flosight.duckdns.org/', 'https://testnet.flocha.in/']
+                                    },
+                                    adminID: "FKAEdnPfjXLHSYwrXQu377ugN4tXU7VGdf",
+                                    sendAmt: 0.001,
+                                    fee: 0.0005,
+
+                                    //Required for Supernode operations
+                                    SNStorageID: "FNaN9McoBAEFUjkRmNQRYLmBF8SpS7Tgfk",
+                                    supernodes: {}, //each supnernode must be stored as floID : {uri:<uri>,pubKey:<publicKey>}
+
+                                    //for cloud apps
+                                    subAdmins: [],
+                                    webAppURL: "ranchimalltimes-webappserver.duckdns.org",
+                                    application: "TEST_MODE",
+                                    appObjects: {},
+                                    generalData: {},
+                                    lastVC: {}
+                                }
                             </script>
 
                         </head>
                         <body translate="no" onload="onLoadStartUp()">
-
+                            <sm-notifications id="notify"></sm-notifications>
                             <sm-notifications id="sm-notifications"></sm-notifications>
 
                             <nav class="topnav">
@@ -1517,17 +1547,95 @@ customElements.define('sm-popup', class extends HTMLElement {
                                 <div id="bodydiv">
                                     <div class="head">
                                         <div class="headerobjectswrapper">  
-                                            <header id='title' data-articleName='Antikythera Mechanism: world's oldest computer' data-exportTime='1642131364921' data-randomNumber='0.11658321792937554'>Antikythera Mechanism: world's oldest computer</header>
+                                            <header id='title' data-articleName='World Affairs' data-exportTime='1638971528448' data-randomNumber='0.6937766592739569'>World Affairs</header>
                                         </div>
                                         <div class="subhead" id='subtitle'>Exported by RanchiMall Content Collaboration on FLO Blockchain</div>
                                     </div>
                                     <div class="content" id='sectionmaster'><div class="columns">
-                            <div class="column" id='section1'><div class="head"><span class="headline hl3">2000-year-old computer discovered in 1901</span></div><p>Just like in a science fiction story, archaeologists found a huge wristwatch buried deep in the sea, a scientific computer that was built between 70 and 60 BC. The Antikythera mechanism (pronounced as AN-tih-kih-THEER-ə) is the device. It was so advanced, nothing as complex was developed again until the 14th century. Its artifacts seemed way ahead of their time. Around 120 years ago, in Greece, a sponge diver discovered the wreck of a Roman cargo ship, at a depth of 45 meters off Antikythera island. Various bronze and marble statues, unique glassware, pottery, coins, jewelry, and other antiques were retrieved from the site. But what fascinated the archaeologists most from that site was the Antikythera mechanism, which was found in 1901. It has been predicted that the mechanism was being taken from Rhodes to Rome, with other looted treasures. Earlier, the mechanism went unnoticed for two years because museums' staff focused on piecing together the other treasures. Later examination revealed that the mechanism was made up of encrusted and corroded instruments. Only one-third parts of the original device survived. The largest piece was 33 cm high, 17 cm wide, and 9 cm thick, made of bronze mounted in a wooden frame. After decades of work on the device, in 1951, Derek J. de Solla Price, a British science historian, started investigating the mechanism. The device was too fragile to be moved out from the National Archaeological Museum of Athens. So in the 1970s, a research team constructed a microfocus computerized tomographer to study the object, and the first secret was revealed, dozens of gears were hidden within it. The device had several interlocking gears of bronze, a hand crank for turning the geared mechanism, and a display that presented data about the moon, sun, and planets. But it wasn't until 3D x-ray technology that they were able to separate these gears. It also disclosed a user manual that was hidden within the corroded bronze. The Antikythera mechanism is one of the world's oldest known geared devices, an analog astronomical computer.</p></div></div><div class="columns">
-                            <div class="column" id='section2'><div class="head"><span class="headline hl3">The mysteries hidden in the gear wheels</span></div><p>The discovery of the Antikythera mechanism showed that ancient Greeks achieved technological advancement way before. It is said that the Antikythera mechanism may be a thousand years ahead of its time. The mechanism displayed the ancient Greek cosmos- the sun, moon, and planets in a ring system. The machine has a single input wheel drive, a complex combination of gears, pins, slots, and pointers that help the operator predict the position of celestial bodies, date & time of eclipses. The mechanism can be winded ahead ten years to know the position of celestial objects in the future. The device was originally enclosed in a shoe-box-sized case, and its faces were covered with Greek inscriptions. It came with an instruction manual as these inscriptions indicated the astronomical and calendrical purposes of the mechanism. It has the first known set of scientific dials, whose value was recognized even more when the radiographic images displayed that the remaining fragments had thirty bronze gear wheels with one-millimeter-long teeth. The mechanism had 82 parts, many of which were lost after or before the discovery. A gear that was a part of the planetary display is lost. Many gears did not work in single pieces, scales were incomplete, and only one indicator persisted as a fragment. It has two crown gears, and the rest of them are normal gears that need particular alignment of the axes. The transmission was not uniform for these antique gears. The mechanism astonished researchers because no other machines from the ancient world had such complexity of gears. The mechanism has a large upper dial with a five-turn spiral slot and a moving pointer, and two large dials are at the back. This construction showed the 235 lunations, or synodic months in the Metonic cycle, which is 19 years long and used in replicating calendars. A large lower dial had symbols containing a four-turn spiral displaying the months that would have a solar or lunar eclipse on the basis of the 18.2-year Saros eclipse cycle. A subsidiary four-year dial indicated when the Panhellenic games would occur. The ancient Olympic Games came under this set, marking the beginning of four years when the full moon is closest to the summer solstice. Therefore, it required great expertise to calculate the timing in astronomy and the Antikythera mechanism aptly served its purpose. Reports say that the mechanism was repaired at least once, therefore, it must have been used frequently by ancient people.</p></div></div><div class="columns">
-                            <div class="column" id='section3'><div class="head"><span class="headline hl3">Recreation of the masterpiece</span></div><p>The researchers wanted to recreate the device to possibly get to the bottom of several mysteries surrounding it. Despite years of thorough research and debate, researchers were never proficient at completely recreating the mechanism. However, a brilliant group of researchers at University College London (UCL) believe that they've reconstructed the design of the astounding device using 3-D imagery. According to an article published in the open-access journal Scientific Reports, Professor Tony Freeth (UCL Mechanical Engineering) says, “Our work reveals the Antikythera mechanism as a beautiful conception, and it matches the descriptions in the scientific notations engraved on the mechanism itself.” He also added, “It challenges all our presumptions about the technical aptitudes of the ancient Greeks.” Also, no one had ever created a model of cosmos that accommodated all of the physical evidence. Their model recreates each rotating dial and gears to show the movement of the sun, the moon, and the planets across the zodiac on the front face, and also the phases of the moon and eclipses on the back face. A hand coil rotates the gears which move the hands on the dials, through which the user can predict eclipses, and also the passage of heavenly bodies through the sky. Undoubtedly, their paper includes proof that the mechanism produced expected results. They are receiving applauds as all the known features and components have been explained for the very first time. They have also designed a gold-colored computer model of the result: “An elegant ancient Greek mechanical cosmos.” Now that the computer model has been recreated, the researchers want to make physical versions using modern techniques and operate the techniques that could have been used by the ancient Greeks. The mechanism has the importance of providing an encyclopedia of astronomical knowledge to unravel the history of ancient Greek time.</p></div></div><div class="columns">
-                            <div class="column" id='section4'><div class="head"><span class="headline hl3">Wisdom from the history of technology</span></div><p>The Antikythera mechanism presents a valuable insight into the history, allowing us to see the ancient Greeks' recorded astronomical knowledge, as well as the wisdom of the ancient Babylonians. Furthermore, it lays evidence of the ancient Greeks' remarkable mathematical and engineering ability. From any perspective, the mechanism’s level of engineering is astounding. The Antikythera mechanism's discovery indicated that the Greeks had achieved the pinnacle of technological skill unfathomable. Literature from around that period makes multiple references to devices similar to this one, recovered in the shipwreck. In his writings, the Roman orator Cicero (106–43 BC) discussed many inventions that were similar to the Antikythera mechanism, which adds to the authenticity of these claims. The fact that devices like the Antikythera mechanism were exceptionally rare and expensive may be one of the reasons why no other devices have survived from antiquity to today. Bronze is a highly valued and recyclable metal.  All of antiquity's artifacts have been believed to be lost or destroyed. Metal devices from antiquity are extremely rare to find because, in most cases, such devices were melted down for their metal. Considering all of this, it's reasonable to conclude that the device has only lasted because it was buried at the sea bottom and no one was able to recover it. Our understanding of ancient people and their cultures is not always accurate, which makes this revelation highly crucial for both archaeology and computer science. Modern technology has vastly advanced our understanding of the mechanism in the years since its discovery. This ancient invention provides a different picture of the ancient Greeks, indicating that they were far more advanced than we ever anticipated. The Antikythera mechanism has astounded the scientific community and the rest of the world and has inspired century-long research into how an early civilization fashioned such a masterwork. It's crucial to remember that many previous inventions were technological game-changers when they were first introduced. The Antikythera mechanism is one of the most fascinating scientific stories ever told. The mechanism's existence demonstrates the level of ideas and craftsmanship during classical times. As a result, such findings drive today's scientists and researchers to expand the scope of learning in the evolution of human thought and science. According to the great Arthur C. Clarke, “If the ancient Greeks had understood the competence of the technology they developed, they would have made it to the moon within 300 years and would now be discovering the closest stars”.</p></div></div>   <div class="columns">
+                            <div class="column" id='section1'><div class="head"><span class="headline hl3">Big Tech Companies Antitrust Hearing - why 4 biggest companies are going under trial?</span></div><p>Big Tech companies Antitrust hearing
 
-                                        </div>
+As we all know from decades, the tech industry has avoided and dodge scrutiny over mergers, acquisitions, and potential anti-competitive behavior as antitrust crusaders argued their case from the sidelines. But this time, the industry’s biggest companies are  forced to face that evidence head-on.
+
+On July 29th, lawmakers are set to face the chief executives of the tech industry’s the four companies who are going under this big trial are respectively Amazon, Apple, Facebook, and Google. Since last June, House lawmakers have been engaged in a sweeping investigation into the tech sector, focusing on whether some of the most notable names in the industry have grown too big and powerful.
+
+
+
+At the hearing, evidence from an investigation may finally make a way into public record. Throughout its year of investigations, the committee has acquired at least 1.3 million documents from the testifying companies, held five public hearings, and conducted hundreds of hours of interviews. Facebook’s Mark Zuckerberg and Google’s Sundar Pichai have already faced grilling  and issues from Congress but not under these circumstances. Under Chairman David Cicilline’s (D-RI) leadership, members of the committee are heading into this week’s hearing with a huge pile of receipts, leaving little room for the executives to avoid uncomfortable lines of questioning.
+
+“The other hearings where they’ve testified have not really been oversight hearings, they haven’t been about antitrust and monopolistic behavior,” told Pramila Jayapal. (U. S representative)
+
+The main reason behind the hearing was for Zuckerberg, Pichai, Amazon’s Jeff Bezos, and Apple’s Tim Cook to address the evidentiary record the committee has already prepared over the last 13 months, an intimidating number of documents that no tech CEO has reckoned with since Microsoft’s antitrust charges in the ‘90s. At the end of this probe, the committee intends to publish a report in the coming months detailing how the executives’ respective companies have avoided liability under current antitrust laws because those competition rules were never crafted with the tech industry’s behaviours in mind.
+
+
+The question arose is How the CEOs of Apple, Google, Amazon, and Facebook plan to defend Big Tech today.?
+
+
+
+The hearing may be particularly rough on Jeff Bezos, who is testifying before Congress for the first time. Amazon has been a chief target for tech antitrust scholars for years, and recent evidence has put it in a particularly shaky position. At a hearing last July, Amazon’s associate general counsel Nate Sutton said that the company does not access sales data from sellers. But in April, The Wall Street Journal says that Amazon employees used independent seller data to guide the development of Amazon’s own products. According to the Journal, employees allegedly  the sales and profit margins of products like a car trunk organizer sold by a third-party seller before launching its own competing product. After the report was published, the House Judiciary Committee called on Bezos to testify in light of the story.
+
+
+There are similar points for nearly every company appearing. Apple is facing active antitrust in both the US and EU over its app store policies, particularly the flat 30 percent of the  companies cut collects for fees paid through the store.  Facebook’s  has a history of troublesome acquisitions, including Instagram, that they have largely avoided regulatory scrutiny.
+
+. Rep. Matt Gaetz (R-FL) sits on the subcommittee and has brandished himself as a prominent voice in the Republican fight against biased platform moderation. Gaetz has already filed a criminal referral against Zuckerberg for allegedly making false statements to Congress in hearings past. Companies are also trying to make the hearing about Chinese apps like TikTok and how new competition rules could make the US less competitive with products from China.
+
+
+
+
+“There are some common patterns and I hope that we can show those across the companies,” Jayapal told The Verge. “The patterns of behavior are to dominate and to use that dominance to set the rules, so that other competitors cannot succeed.”
+
+Apple, Facebook, and Google did not immediately respond to requests for comment. Amazon declined to comment on the topic.
+
+While the hearing ends the Judiciary Committee’s probe into Big Tech, it’s only the beginning of future regulatory or legislative action. What the executives say during the hearing could provide evidence for a new antitrust probe from law enforcement or provide the foundation for bills aimed at regulating the industry from Congress. For experts like Dipayan Ghosh, a former Facebook employee and a Pozen Fellow researching the tech industry at the Harvard Kennedy School, Wednesday’s hearing simply marks the end of evidence-gathering.
+
+As we can see “This is the starting point. This cannot be the endpoint, because if it were, I would anticipate nothing happening going forward if this is the end,” Ghosh told.
+
+There's a lot of pressure on lawmakers, but if its executed well, the hearing could introduce a new era in antitrust regulation in the tech sector. After months of interviews and document requests, lawmakers and regulators finally have a chance to get direct answers from all of the major companies at once. It took a lot of work to get these four CEOs(Amazon, facebook, apple, google) on the same panel at the same time, and it’s unlikely that Congress will have another chance like this anytime soon.</p></div></div><div class="columns">
+                            <div class="column" id='section2'><div class="head"><span class="headline hl3">Pakistan will Not Recognize Israel after UAE</span></div><p>The UAE on August 13 became the first Gulf Arab country - to reach a deal on normalising relations between Palestine and Israel, broken connection among the countries in commerce and technology. Although, there are still 30 countries, including Pakistan, which are not ready to start a diplomatic relations with this Zionist state which was vanquished by the Ottoman Empire in 1517. 
+
+
+The reason for not recognising Israel as a country, what Pakistani Prime minister stated is verbatim "Our stance is very clear; as Quaid-e-Azam Muhammad Ali Jinnah said, Pakistan will never recognise Israel until Palestinians are given their right of a just settlement." They even compared the matter with Kashmir issue saying that, it will be like giving up Kashmir, and Pakistan won't do that.
+
+
+'Recognising as a country' means having diplomatic relations with the country, having access to visa of the country, and have commercial and technical connection.
+
+
+Even Saudi Arabia is against acceptance, as country's foreign minister Prince Faisal said, " peace must be achieved with the Palestinians. Once that is achieved all things are possible." There are speculations regarding countries that could make peace with Israel in near future, that are Bahrain, Oman and Morocco.
+
+
+Pakistan not recognising Israel is a benefit in some aspects for India, as Israel is a huge exportiof arms and ammunition. Simultaneously, Pakistan has decided not to establish relations with Israel it paves way for India to form long term defence relation with country's defence industry. Unlike Russia that recently decided to sell some military grade helicopter to Pakistan, India won't face such an issue with Israel at least in near future.</p></div></div><div class="columns">
+                            <div class="column" id='section3'><div class="head"><span class="headline hl3">Russia China Financial Alliance - What is Dedollarisation?</span></div><p>In the latest development, China and Russia in their bilateral trade (exchange of goods between two nations and reduce trade barriers to encourage trade and investment) has reduced the usage of US Dollar and it is said they are slowly moving towards 'FINANCIAL ALLIANCE".
+These two countries together taking the decision to reduce their dependence on the US dollar.
+
+In 2015, approximately 90% of bilateral transactions between Russia and US were conducted in US dollars. But the mind off between US-China trade war with the time increased due to which the bilateral transaction between Russia and China slowly started to decrease which lead to decline of the usage of US Dollar.
+
+For the first time in history, trade between the two countries through Dollar dropped 50% in a quarter.
+The dollar's share of trade between the two countries Russia and China is reduced to only 46% while the euro's share is 30% and China Russia's own national currencies accounted for a record high 24% share of bilateral trade settlement. China dropping dollar based trade slowly is a sign of its growing economy.
+
+Alexey Maslov, director of the Institute of Far Eastern Studies at the Russian Academy of Sciences, told that the Russia-China "dedollarization" was approaching a "breakthrough moment" that could elevate their relationship to a de facto alliance.
+He also said, "The collaboration between Russia and China in the financial sphere tells us that they are finally finding the parameters for a new alliance with each other."
+"Many expected that this would be a military alliance or a trading alliance, but now the alliance is moving more in the banking and financial direction, and that is what can guarantee independence for both countries."
+
+
+Since 2014, Dedollarisation was the priority of Russia as, US President Obama imposed sanctions on Russian-occupied Crimea by executive order prohibiting exports of US goods and services to the region. Also the mind off between US-China trade war gained further momentum after the Donald Trump administration imposed tariffs on hundreds of billions of dollars worth of Chinese goods. 
+As one expert says, "Only very recently did the Chinese state and major economic entities begin to feel that they might end up in a similar situation as our Russian counterparts: being the target of the sanctions and potentially even getting shut out of the SWIFT system"
+
+Due to this in 2014, Russia and China signed a three year Currency Swap Deal worth 150billion yuan. Infact the Swap deal between these two countries was so successful that they extended the deal after the 3 years in 2017 to another 3years. Also, through this particular agreement if we want to buy another country currency we can directly buy it with access to each others currency and will not have to give any extra transaction charge.
+
+The second important deal do be between China and Russia was when Chinese President Xi Jinping's visit to Russia in June 2019. They come upon a deal to replace the dollar with national currencies for international settlements between them.
+
+However experts said, "Dethroning the dollar, however, will not be easy."
+
+Jeffery Frankel, an economist at Harvard University, told Nikkei that the dollar enjoys three major advantages: the ability to maintain its value in the form of limited inflation and depreciation, the sheer size of the American domestic economy, and the United States having financial markets that are deep, liquid and open. So far, he argued, no rival currency has shown itself capable of outperforming the dollar on all three counts.
+
+Yet Frankel also warned that while the dollar's position is secure for now, spiraling debts and an overly aggressive sanctions policy could erode its supremacy in the long run.
+
+"Sanctions are a very powerful instrument for the United States, but like any tool, you run the risk that others will start looking for alternatives if you overdo them," he said. "I think it would be foolish to assume that it's written in stone that the dollar will forever be unchallenged as the number one international currency."</p></div></div>
+<span style="padding-left:10rem;cursor:pointer;border: black solid 2px;padding: 6px;margin-left: 10rem;" id="column${
+    i + 1
+  }_thumbs" class="fa fa-thumbs-o-up"
+ onclick="clickProcess(this)"> Upvote 
+  <span style="font-weight:bold;padding-left: 5px;" id="num"> </span></span>
+<br><br>
                                     </div>
                                 </div>
                             </div>
@@ -10740,10 +10848,38 @@ customElements.define('sm-popup', class extends HTMLElement {
                                     }
                                 }
                             </script>
+<script>
+    function clickProcess(element) {
+        let columnName =`column${col}_count`;
+        if (myFloID!=undefined) {
+          if (element.classList.value  == "fa fa-thumbs-o-up")
+           {
+            let articlekey =articlekeey
+            let mainObj = {
+              floID: myFloID,
+              articlekey: articlekey,
+            };
+            console.log("mainObj")
+           floCloudAPI.sendGeneralData(JSON.stringify(mainObj), "test")
+              .then((result, mainObj) => {
+                element.classList.value = "fa fa-thumbs-up";
+                if(document.getElementById('num').textContent==" "){
+          document.getElementById('num').textContent="1";
 
-                            <script id="onLoadStartUp">
-
-                                let notifications = document.getElementById("sm-notifications"),
+          }
+          else{
+            num1=Number(document.getElementById('num').textContent)
+            document.getElementById('num').textContent=num1+1;
+          }
+              });
+          }
+        } else {
+          document.getElementById('notify').push("Please login to upvote",{pinned:true});
+        }
+          }
+</script>
+                      <!-- <script id="onLoadStartUp">
+                              /*  let notifications = document.getElementById("sm-notifications"),
                                     genblockchainID = document.getElementById('gen-floid'),
                                     genPrivateKey = document.getElementById('gen-privateKey'),
                                     settings_page = document.getElementById('settings-page'),
@@ -10751,33 +10887,68 @@ customElements.define('sm-popup', class extends HTMLElement {
                                     mainarticle_page = document.getElementById('display_page_main')
 
 
-                                function clickProcess(element) {
-                                    let title = document.getElementById('title')
-                                    if (typeof myFloID !== 'undefined') {
-                                        if (element.classList.value == 'fa fa-thumbs-o-up') {
+                                    function clickProcess(element) {
+                                        let columnName =`column${col}_count`;
+                                        console.log(element)
+                                        console.log(element.classList)
+                                        if (myFloID1!=undefined) {
+                                          if (element.classList.value  == "fa fa-thumbs-o-up")
+                                           {
+                                            let articlekey =articlekeey
                                             let mainObj = {
-                                                'floID': myFloID,
-                                                'articlename': title.dataset.articlename,
-                                                'exporttime': title.dataset.exporttime,
-                                                'randomnumber': title.dataset.randomnumber
-                                            }
-
-                                            floCloudAPI.sendGeneralData(JSON.stringify(mainObj), 'article_votes_test5').then((result, mainObj) => {
-                                                element.classList.value = 'fa fa-thumbs-up'
-                                                let article_vote = document.getElementById('article-vote'),
-                                                    article_thumbs = document.getElementById('article-thumbs')
-
-                                                if (article_vote.innerText == 'Vote' || article_vote.innerText == '') {
-                                                    article_vote.innerText = '1'
-                                                } else {
-                                                    article_vote.innerText = parseInt(article_vote.innerText) + 1
-                                                }
-                                            })
+                                              floID: myFloID1,
+                                              articlekey: articlekey,
+                                            };
+                                            console.log("mainObj")
+                                           floCloudAPI.sendGeneralData(JSON.stringify(mainObj), "test")
+                                              .then((result, mainObj) => {
+                                                element.classList.value = "fa fa-thumbs-up";
+                                    
+                                                if(document.getElementById('num').textContent==" "){
+                                          document.getElementById('num').textContent="1";
+                                          }
+                                          else{
+                                            num1=Number(document.getElementById('num').textContent)
+                                            document.getElementById('num').textContent=num1+1;
+                                    
+                                          }
+                                              });
+                                          }
+                                        } else {
+                                          document.getElementById('notify').push("Please login to upvote",{pinned:true});
                                         }
-                                    } else {
-                                        notifications.push("Please login to upvote")
-                                    }
-                                }
+                                          }
+                                */
+                                    </script>--> 
+
+                                    <script id="onLoadStartUp">
+
+                                        
+                                let notifications = document.getElementById("sm-notifications"),
+                                genblockchainID = document.getElementById('gen-floid'),
+                                genPrivateKey = document.getElementById('gen-privateKey'),
+                                settings_page = document.getElementById('settings-page'),
+                                homepage = document.getElementById('homepage'),
+                                mainarticle_page = document.getElementById('display_page_main')
+
+                                          var myFloID,col,articlekeey,myPrivKey;
+                                          function onLoadStartUp(){
+
+                                            floDapps.launchStartUp().then(result => {
+                                                console.log(result)
+                                                console.log(`Welcome FLO_ID: ${myFloID}`)
+                                                //App functions....
+                                            }).catch(error => console.error(error))
+                                        
+                                          var  b=JSON.parse(sessionStorage.getItem("z"))
+                                           myFloID1=(sessionStorage.getItem("m"))
+                                            col=(sessionStorage.getItem("col"))
+                                            console.log(col)
+                                            articlekeey=(sessionStorage.getItem("articlename"))
+                                            myPrivKey=sessionStorage.getItem("myprivkey");
+                                            myPubKey=sessionStorage.getItem("mypubkey");
+                                           document.getElementById('num').textContent=b;
+                                          }
 
 
                                 let myCustomLogin = function () {
